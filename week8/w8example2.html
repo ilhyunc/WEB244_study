@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* #id1{
+            color:red;
+            background-color: yellow;
+        } */
+
+        .ttt{
+            background-color: yellow;
+            color : blue;
+            font-size: 3em;
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+    <p id="id1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit iure quasi voluptatum dolorum et quia atque rem aliquid laudantium numquam repellat vel eum doloribus nobis, quidem eos nihil exercitationem. Iure?</p>
+    <p id="id2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit iure quasi voluptatum dolorum et quia atque rem aliquid laudantium numquam repellat vel eum doloribus nobis, quidem eos nihil exercitationem. Iure?</p>
+    <p id="id3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit iure quasi voluptatum dolorum et quia atque rem aliquid laudantium numquam repellat vel eum doloribus nobis, quidem eos nihil exercitationem. Iure?</p>
+    <script>
+        var elem = document.getElementById('id1');
+
+        //First way to change the style using DOM
+        elem.style.color = "red";
+        elem.style.backgroundColor = "yellow";
+
+        //Second way yo change the style using DOM
+        elem = document.getElementById('id2');
+        elem.style = "color:gray; background-color:yellow";
+        //elem.setAttribute('style;color:gray;background-color:yellow');
+
+        //Third way yo change the style using DOM
+        elem = document.getElementById('id3');
+        elem.className="ttt";
+        //elem.
+
+    </script>
+</body>
+</html>

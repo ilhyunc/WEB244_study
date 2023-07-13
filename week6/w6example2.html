@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6</title>
+</head>
+<body>
+    <h1>Week 6: Using Javascript in HTML documents</h1>
+    <!--Insert in-line javascript code-->
+    <h3 onclick="alert('Hello');" onmouseover = "console.log('ILHYUN');" 
+    onmouseout = "console.log('Bye')">in-line javascript</h3>
+    <!--
+        Internal Javascript code
+    -->
+    <script>
+        var name = prompt("What is your name?");
+        alert("Hello " + name);
+    </script>
+    <p><span onmouseover="console.log(Cho)">Lorem</span>learjlke aelkrnkaernla laiejr aserj lkawer klsajerjoe</p>
+    <!--
+        External JScript file
+    -->
+    <script src="./js/myscript.js"></script>
+</body>
+</html>

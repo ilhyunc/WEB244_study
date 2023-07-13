@@ -1,0 +1,27 @@
+Domain Name System (DNS) - There are lots more, but each has trade offs (privacy, speed)
+Hypertext Transfer Protocol (HTTP)
+---------------------------------------------------
+The web isn’t owned or controlled by any single company, organization, or government.
+ Instead, it is defined as a set of "open standards", which everyone building and using the web relies upon. 
+ eg) HTML, HTTP, SVG,
+
+---------------------------------------------------
+ There are dozens of response codes, but they fall into a few categories you should learn:
+
+1xx - information responses
+2xx – successful responses
+3xx - redirection messages
+4xx – client error responses
+5xx – server error responses
+
+---------------------------------------------------
+Declaration          	Type	     Value
+var b3 = !b2;	        Boolean  	 true
+var s = Symbol("Sym");	symbol   	 Symbol(Sym)
+var c;	                undefined	 undefined
+var d = null;	        object	     null
+
+---------------------------------------------------
+===   |  Strict Equal     | 1 === 1 but 1 === "1" is not true due to types. Prefer '==='
+!==	  |  Strict Not Equal | 1 !== "1". Prefer !==
+typeof|	Type Of	typeof    | "Hello" gives 'string', typeof 6 gives 'number'
