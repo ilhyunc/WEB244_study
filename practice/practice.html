@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>	
+    <fieldset>
+    <legend>Student Info Form</legend>
+    <form action="https:// httpbin.org/post" method="post">
+      <p>
+        Student Name(*):
+        <input type="text" name="student name" autofocus>
+      </p>
+      <p>
+        Student ID (*):
+        <input type="text" name="student Id" placeholder="###-###-###">
+      </p>
+      <p>      
+        E-mail(*):
+        <input type="email" name="e-mail">
+      </p>
+     <p>Program:</p>
+	<p> 
+	  <select name="what-to-do" id="what-to-do">
+		<option value="1"> CPD </option>
+		<option value="2" selected > CPA </option>
+		<option value="3"> BSD </option>
+	  </select>
+<p>
+<label for="semester">Semester: </label>
+                <input type="number" min="1" max="6">
+</p>
+     <p>Gender:
+        <input type="radio" name="gender" id="gender-male" value="m" checked>
+            <label for="gender-male">Male</label>
+            <input type="radio" name="gender" id="gender-male" value="f">
+            <label for="gender-female">Female</label>
+    </p>
+    <p>
+    <label for = “msg”> Message: </label>
+<textarea id=:msg:></textarea>
+<br>
+<input type='submit' value='Submit'>
+ </p>
+</form>
+</fieldset>
+</body>
+
+</html>

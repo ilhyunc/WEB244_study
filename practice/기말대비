@@ -1,0 +1,793 @@
+Q1.
+
+Which character in JavaScript cannot be used as First character in variable's name but can be use after first character ?
+- Digit
+
+----------------------------------------
+During addition of two numbers , suppose one of the number is NaN then the output will be ?
+-  NaN
+
+----------------------------------------
+JavaScript is "Browser" Side Scripting Language.
+
+----------------------------------------
+Integer Variable is declared using following syntax in JavaScript.
+- var num;
+
+----------------------------------------
+Single Line Comment Starts with "//" Symbol.
+
+----------------------------------------
+Multiple JS statements are written inside pair of "Pair of Curly braces" to form a statement block.
+
+----------------------------------------
+var i = 25; - digit
+var j = "25"; - string
+var k = 2 + "5"; - string
+var l = "2" + "5"; - string
+
+'==='는 타입까지 체크
+
+----------------------------------------
+What is the output of the following script?
+var x = 12.45;
+var y = 1;
+var z =  x + y +'8';
+console.log((z));
+- 13.458
+
+////////////////////////////////////////////////////////////////////////////
+W2
+
+-------------------------------------------------
+PPT
+
+
+var student = {name:"John", program:"CPD", semester:2};
+var str = "Student info:\n\n";
+
+for (var x in student) { // x is the current property ('key') – ie: name, program, or semester
+    str += x + ": " + student[x] + "\n"; 
+}
+console.log(str);
+
+Student info:
+
+name: John
+program: CPD
+semester: 2
+
+////////////////////////////////////////////////////////////////////////////
+Write a JS Function that returns the number of matches found for the first argument in the remaining arguments: findMatches(66, 1, 345, 2334, 66, 67, 66) should return 2.
+You should check if the number of arguments is less than 2, you should return the following message “Number of arguments must be greater than or equal to 2”.
+Finally, you should call the function with some sample data.
+
+function findMatches(value, ...arg) {
+    if(arg.length < 2){
+        return "Number of arguments must be greater than or equal to 2";
+    }
+
+    let count = 0;
+    for(let i=0; i< arg.length; i++){
+        if(value = arg[i]) count++;
+    }
+    return count;
+}
+
+console.log(findMatches(66, 1, 345, 2334, 66, 67, 66));
+
+----------------------------------------
+Which of the following statements about functions is NOT true? 
+- Function declarations cannot return a value. 
+
+----------------------------------------
+Which of the following is a valid function declaration for a function named getUserAge() that accepts one parameter? 
+- function getUserAge(user) { } 
+
+----------------------------------------
+Which of the following statements performs the same task as the function in the following code? 
+
+function add(x, y) {
+   return x + y;
+}
+alert(add(5, 3));
+
+- const add = (x, y) => x + y; 
+
+----------------------------------------
+What is the output of the follwing code?
+
+function add(num1, num2){
+    return parseInt(num1)+parseFloat(num2);
+}
+console.log("2"*add("2.5", "10,75"));
+float이 콤마임, 그래서 10까지만 읽음. 답은 24
+
+////////////////////////////////////////////////////////////////////////////
+Week3
+
+Member          Type            Example
+length          property    stringName.length
+charAt(n)       method      stringName.charAt(n)
+charCodeAt(n)   method      stringName.charCodeAt(n)
+concat(string2, string3)method stringName.concat(string2, string3)
+indexOf('x')   method stringName.indexOf('x')
+lastIndexOf('x') method stringName.lastIndexOf('x')
+split('x')       method   var arrayName = stringName.split('x')
+substr(x,y)     method  stringName.substr(x,y)  – x=from, y=length
+substring(x,y) method   stringName.substring(x,y)  – x=from (inclusive) y=to (not inclusive)
+toLowerCase() method    Converts a string to lowercase.
+toUpperCase() method    Converts a string to uppercase.
+trim()         method   Removes whitespaces from the left and right of a string.
+prototype   property    Allows you to add properties and methods to an object
+
+----------------------------------------
+RegExp
+
+var str = "Welcome to Toronto";
+var patt = /Me/;       
+var result = patt.test(str);
+console.log(result);   // false 
+
+var result2 = /Me/i.test(str);
+console.log(result2);  // true
+
+g - global match  : 매칭되는 경우 전부다 호출.
+i - ignore case-sensitivity :대,소문자 구분없이 매칭되는 첫번째만 호출.
+m - multiline : 여러줄이 있을때 매 줄을 다 확인, 파일에 여러줄이 있을때 사용.
+
+----------------------------------------
+var str = "School of ICT-Seneca College";
+console.log(str.split('-'));    // [ "School of ICT", "Seneca College" ]   
+console.log(str.split(/-/));    // [ "School of ICT", "Seneca College" ]
+console.log(str.split(/[ -]/)); // [ "School", "of", "ICT", "Seneca", "College" ]
+- ' '(공백) 또는 '-'(-)로 나눔.
+
+----------------------------------------
+To validate: at least 4 alphabetical alphabetic character
+var pattern1 = /^[a-zA-Z]{4,}$/;
+
+To validate: telephone format ###-###-####
+var pattern2 = /^([0-9]{3}[-]){2}[0-9]{4}$/;
+
+----------------------------------------
+arrayName.join() 
+arrayName.pop()
+arrayName.push()
+arrayName.reverse()
+arrayName.slice(x,y)
+arrayName.sort()
+
+----------------------------------------
+var colors = ["Red", "Green", "Blue", "White", "Black"];
+var last   = colors.pop(); //배열의 마지막 항목을 제거 하고 last에 저장 "Black" 
+var first  = colors.shift(); //배열의 첫번째 항목을 제거하고 first에 저장 "Red"
+console.log(colors);  // [ "Green", "Blue", "White" ]
+console.log(last);     // Black
+console.log(first);    // Red
+
+----------------------------------------
+push() 메소드는 JavaScript 배열에서 사용되며, 새 항목을 배열의 끝에 추가하는 데 사용됩니다. 이 메소드를 사용하면 배열의 끝에 새 요소가 추가되어 배열이 변경됩니다.
+var colors = ["Red", "Green", "Blue"];
+colors.push("Pink");  
+console.log(colors); // [ "Red", "Green", "Blue", "Pink" ]
+
+----------------------------------------
+join() 메소드는 배열의 모든 요소를 하나의 문자열로 결합하고 지정된 구분자(separator)로 구분된 형태로 반환하는 데 사용됩니다. 
+만약 구분자가 지정되지 않으면 기본적으로 쉼표(,)가 사용됩니다. 이 메소드를 사용하면 배열의 요소들을 하나의 문자열로 묶어서 출력할 수 있습니다.
+
+var myArray = ["Red", "Green", "Blue", "Yellow"];
+console.log( myArray );  // ["Red", "Green", "Blue", "Yellow"]
+ 
+console.log( myArray.join()    ); // "Red,Green,Blue,Yellow"
+console.log( myArray.join(' ') ); // "Green Blue Yellow"
+console.log( myArray.join("&") ); // "Red&Green&Blue&Yellow"
+
+----------------------------------------
+Q3.Write a JS function called “checkPassword” using function declaration syntax that takes one parameter as password String. The function must validate the password according to the following rules : must be between 8-32 characters in length; must contain one Capital Letter; must contain one Number; must contain one Symbol (!@#$%^&*-+{}). Return true if the given password is valid, otherwise false. 
+Write two statements to call and test the above function.
+function checkPassword(password){
+    if(password.length < 8 || password.length > 32){
+        return false;
+    }
+
+    if(!/[A_Z]/.test(password)){
+        return false;
+    }
+
+    if(!/[0-9]/.test(password)){
+        return false;
+    }
+
+    if (!/[!@#$%^&*+\-{}]/.test(password)) {
+        return false;
+    }
+
+    return true;
+}
+
+console.log(checkPassword("Abcdef123!123456789012345678901")); //true
+console.log(checkPassword("abcedf1230123456789012345678901")); //false
+
+--------------------------------------------------------------------
+Which of the following statement will generate a random integer number between 10(included) and 20(included):?
+-Math.floor(Math.random()*11)+10
+
+////////////////////////////////////////////////////////////////////////////
+Week4
+
+getMonth() method - Returns a Number - 0 to 11 
+var myMonth = (new Date()).getMonth();
+console.log(myMonth); // 실제 Month보다 -1로 표시댐.eg) 1월이면 0으로 표시.
+
+getDate() method - Returns a number - 1 to 31
+
+getDay() method - Returns a Number: 0 for Sunday, 1 for Monday, …
+
+getFullYear() method - Returns a 4 digit year
+
+--------------------------------------------------------------------
+var dt = new Date();
+console.log(dt);                  // Thu Jun 02 2016 11:11:50 GMT-0400 (Eastern Daylight Time)
+console.log(dt.toString());       // Thu Jun 02 2016 11:11:50 GMT-0400 (Eastern Daylight Time)
+console.log(dt.toLocaleString()); // 6/2/2016, 11:11:50 AM
+console.log(dt.toUTCString());// Thu, 02 Jun 2016 15:11:50 GMT
+console.log(dt.toDateString());   // Thu Jun 02 2016
+
+--------------------------------------------------------------------
+Math.max(x, y) - 주어진 숫자 중 최대값을 반환합니다.
+예제: Math.max(0.52, 1)은 1을 반환합니다.
+
+Math.min(x, y) - 주어진 숫자 중 최소값을 반환합니다.
+예제: Math.min(0.52, 1)은 0.52를 반환합니다.
+
+Math.pow(x, y) - x의 y 제곱을 계산하여 반환합니다.
+예제: Math.pow(2, 8)은 256을 반환합니다.
+
+Math.sqrt(x) - x의 제곱근을 계산하여 반환합니다.
+예제: Math.sqrt(9)은 3을 반환합니다.
+
+Math.ceil(x) - x와 같거나 가장 가까운 큰 정수를 반환합니다.
+예제: Math.ceil(0.52)은 1을 반환합니다.
+
+Math.floor(x) - x와 같거나 가장 가까운 작은 정수를 반환합니다.
+예제: Math.floor(0.52)은 0을 반환합니다.
+
+Math.round(x) - x와 가장 가까운 정수를 반올림하여 반환합니다.
+예제: Math.round(0.52)은 1을 반환합니다.
+
+Math.random() - 0 이상 1 미만의 난수(랜덤한 부동 소수점 숫자)를 반환합니다.
+예제: Math.random()은 0과 1 사이의 무작위 부동 소수점 숫자를 반환합니다.
+
+--------------------------------------------------------------------
+var student = {name:"John", program:"CPD", semester:2};
+var str = "Student info:\n\t";
+
+for (var x in student) { // x stands for …?
+    str += x + ": " + student[x] + "\n\t"; 
+}
+console.log(str);
+
+answer:
+Student info:
+    name: John
+    program: CPD
+    semester: 2
+
+--------------------------------------------------------------------
+Object.create() !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+var rectangle1 = {
+    width: 10,
+    height: 15,
+    show: function () {
+       console.log('dimensions: ' + this.width + " x " + this.height);
+    }
+};
+
+var rectangle2 = Object.create(rectangle1); // 복사
+rectangle2.show();    // dimensions: 10 x 15
+
+rectangle2.width = 20; 
+rectangle2.height = 25;
+
+rectangle2.show();  // dimensions: 20 x 25
+
+--------------------------------------------------------------------
+Allows you to add properties and methods to an existing object
+
+String.prototype.reverse = function () {
+   var rev = '';
+   for (var i = this.length - 1; i >= 0; i--)
+      rev += this[i]; // the string
+   return rev;
+};
+
+var myString = "WEB222";
+console.log( myString.reverse() );  // 222BEW
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+L5
+<p>: 문단을 정의합니다.
+예시: <p>This is a paragraph of text.</p>
+
+<blockquote>:
+설명: 긴 인용구를 나타냅니다. 텍스트의 오른쪽과 왼쪽 여백이 들어가며 화면 표시와 인쇄 모두에 적용됩니다.
+예시:
+html
+Copy code
+<blockquote>
+    This is a long quotation that spans multiple lines. It is indented on both sides.
+</blockquote>
+
+<pre>: 서식이 지정된 텍스트를 나타냅니다. 예를 들어, 공백과 줄바꿈을 그대로 유지합니다.
+예시:
+<pre>
+    This is preformatted text.
+    It preserves spaces and line breaks.
+</pre>
+
+<br />: 한 줄의 간격을 띄우는 줄 바꿈 요소입니다.
+예시: <p>This is a paragraph.<br />Another line in the same paragraph.</p>
+
+<hr>: 수평선을 나타냅니다. 주로 주제나 섹션 간의 분리를 나타내는 데 사용됩니다.
+예시: <hr>ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+<mark>: 텍스트의 일부를 강조 표시합니다.
+예시: <p>This is an example of <mark>highlighted</mark> text.</p>
+
+-------------------------------------------
+<  &lt;
+>  &gt;
+&  &amp;
+
+-------------------------------------------
+<b>: 굵은 텍스트를 표시합니다.
+CSS 스타일: { font-weight: bold; }
+
+<em>: 강조된 텍스트를 표시합니다 (이탤릭체).
+CSS 스타일: { font-style: italic; }
+
+<i>: 이탤릭체로 텍스트를 표시합니다.
+CSS 스타일: { font-style: italic; }
+
+<u>: 밑줄이 있는 텍스트를 표시합니다.
+CSS 스타일: { text-decoration: underline; }
+
+<sup>: 위 첨자로 텍스트를 표시합니다.
+CSS 스타일: { font-size: small; vertical-align: super; }
+
+<sub>: 아래 첨자로 텍스트를 표시합니다.
+CSS 스타일: { font-size: xx-small; vertical-align: sub; }
+
+-------------------------------------------
+<dl> 	 
+   <dt> ...... </dt> // 여기부터 시작 빈칸없음
+      <dd> ...... </dd> // 첫 빈칸 탭 생김
+      <dd> ...... </dd>
+   <dt> ...... </dt>
+      <dd> ...... </dd>
+</dl>
+들여쓰기 
+
+-------------------------------------------
+<ol> 
+   <li> First item </li>
+   <li> Second item
+      <ul>	 
+         <li> Sub-item 1 </li>
+         <li> Sub-item 2 </li>
+      </ul>
+   </li>
+   <li> Third item </li>
+   <li> Fourth item </li>
+</ol>
+
+1.First item
+2.Second item
+    *Sub-item 1
+    *Sub-item 2
+3.Third item
+4.Fourth item
+
+-------------------------------------------
+<ol start="3">
+   <li>Start from 3</li>
+   <li>Next item</li>
+   <li>Another item</li>
+</ol>
+
+3.Start from 3
+4.Next item
+5.Another item
+
+-------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Image Example</title>
+</head>
+<body>
+   <h1>Image Example</h1>
+   <p>Here is an image of Seneca College logo:</p>
+   <img src="logo.png" alt="Seneca College" style="width: 195px; height: 43px;">
+</body>
+</html>
+
+<img> 태그는 이미지를 웹 페이지에 정의합니다.
+src 속성은 이미지의 URL을 지정합니다.
+alt 속성은 이미지의 대체 텍스트를 제공합니다. 이미지가 로드되지 않을 경우 대체 텍스트가 표시됩니다.
+style 속성을 사용하여 이미지의 너비와 높이를 CSS를 통해 지정할 수 있습니다
+
+-------------------------------------------
+<a href="https://scs.senecac.on.ca/"> My Timetable</a>
+- My Timetable이라는 링크설정되고, 클릭하면 주소로 이동
+
+mailto:를 사용하여 이메일 주소를 지정합니다.
+<a href="mailto:wsong@myseneca.on.ca">Email me</a>
+
+Phone link:전화번호 링크는 클릭하면 전화 앱이 열리고 지정된 전화번호로 전화가 걸립니다
+<a href="tel:+14164915050">+1 416 491 5050</a>
+
+Image link: Image link: 이미지를 링크로 사용할 수 있습니다. 이미지를 클릭하면 지정된 URL로 이동합니다.
+<a> 태그 내에 <img> 태그를 삽입하고, src 속성으로 이미지 파일의 URL을 지정합니다.
+
+<a href="http://www.senecacollege.ca/">
+   <img src="seneca-logo.png" alt="Seneca College" /> 
+</a>
+
+-------------------------------------------
+
+////////////////////////////////////////////////////////////////////////////////////////////
+L6
+
+rowspan = row(세로) 속성은 테이블의 행을 횡방향으로 확장시키는 데 사용되는 속성입니다. 이를 통해 하나의 셀이 여러 행을 걸쳐 확장되도록 지정할 수 있습니다.
+colspan = column(가로) 속성은 테이블의 열을 종방향으로 확장시키는 데 사용되는 속성입니다. 이를 통해 하나의 셀이 여러 열을 걸쳐 확장되도록 지정할 수 있습니다.
+
+-------------------------------------------
+<figcaption> 태그는 <figure> 태그 내에서 사용되며, 보통 포함된 컨텐츠에 대한 캡션을 제공하는 데 사용됩니다. 
+이 캡션은 컨텐츠의 의미나 설명을 더 잘 전달하기 위해 활용됩니다. 
+<figcaption> (설명) 은 컨텐츠 위나 아래에 배치할 수 있습니다.
+
+<div class="picture">
+    <figure>
+        <figcaption>This is an example image.</figcaption>//여기나
+        <img src="image.jpg" alt="An example image">
+        <figcaption>This is an example image.</figcaption>//여기
+    </figure>
+</div>
+
+-------------------------------------------
+<img>: 이미지를 나타내며, 이미지의 경로를 가리킵니다.
+<input>: 입력 필드를 나타내며, 사용자의 입력을 받는 용도로 사용됩니다.
+<br>: 줄 바꿈을 수행합니다.
+<hr>: 수평 구분선을 나타냅니다.
+이 4가지는 맺음(</>) 필요없음 
+
+-------------------------------------------
+alert('Hello, World!'); - 팝업 창으로 'Hello, World!'를 출력
+
+-------------------------------------------
+
+////////////////////////////////////////////////////////////////////////////////////////////
+L7
+
+
+
+Properties:
+*** element.className: 요소의 클래스 이름을 가져오거나 설정합니다.
+<div class="box"></div>
+eg)
+const box = document.querySelector('.box');
+console.log(box.className); // 출력: "box"
+
+---------------------------------------
+*** element.id: 요소의 고유한 ID를 가져오거나 설정합니다.
+<p id="myParagraph">This is a paragraph.</p>
+eg)
+const paragraph = document.getElementById('myParagraph');
+console.log(paragraph.id); // 출력: "myParagraph"
+
+---------------------------------------
+*** element.innerHTML: 요소의 내부 HTML 콘텐츠를 가져오거나 설정합니다
+<div id="myDiv">Hello, <span>world</span>!</div>
+eg)
+const div = document.getElementById('myDiv');
+console.log(div.innerHTML); // 출력: "Hello, <span>world</span>!"
+
+---------------------------------------
+*** element.style: 요소의 인라인 스타일 속성을 가져오거나 설정합니다
+<p id="styledParagraph" style="color: blue;">This is a blue paragraph.</p>
+eg)
+const styledParagraph = document.getElementById('styledParagraph');
+console.log(styledParagraph.style.color); // 출력: "blue"
+
+---------------------------------------
+*** element.parentNode: 요소의 부모 노드를 가져옵니다.
+<div>
+  <p>This is a paragraph.</p>
+</div>
+eg)
+const paragraph = document.querySelector('p');
+const parentDiv = paragraph.parentNode;
+console.log(parentDiv.tagName); // 출력: "DIV"
+
+---------------------------------------
+*** element.nextSibling: 현재 요소의 다음 형제 노드를 가져옵니다.
+<div>
+  <p>First paragraph.</p>
+  <p>Second paragraph.</p>
+</div>
+eg)
+const firstParagraph = document.querySelector('p');
+const nextParagraph = firstParagraph.nextSibling;
+console.log(nextParagraph.textContent); // 출력: "Second paragraph."
+
+///////////////////////////////////////////////////////////////////////////////
+***Methods
+
+element.querySelector(): 주어진 CSS 선택자와 일치하는 첫 번째 하위 요소를 검색합니다.
+<ul>
+  <li class="item">Item 1</li>
+  <li class="item">Item 2</li>
+</ul>
+eg)
+const listItem = document.querySelector('.item');
+console.log(listItem.textContent); // 출력: "Item 1"
+
+---------------------------------------
+element.querySelectorAll(): 주어진 CSS 선택자와 일치하는 모든 하위 요소를 검색합니다.
+<ul>
+  <li class="item">Item 1</li>
+  <li class="item">Item 2</li>
+</ul>
+eg)
+const items = document.querySelectorAll('.item');
+items.forEach(item => console.log(item.textContent));
+// 출력: "Item 1"
+// 출력: "Item 2"
+
+---------------------------------------
+element.getElementsByTagName(): 주어진 태그 이름과 일치하는 모든 하위 요소를 검색합니다.
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+eg)
+const listItems = document.getElementsByTagName('li');
+console.log(listItems[0].textContent); // 출력: "Item 1"
+
+---------------------------------------
+element.getElementsByClassName(): 주어진 클래스 이름과 일치하는 모든 하위 요소를 검색합니다.
+<ul>
+  <li class="item">Item 1</li>
+  <li class="item">Item 2</li>
+</ul>
+eg)
+const itemElements = document.getElementsByClassName('item');
+console.log(itemElements[1].textContent); // 출력: "Item 2"
+
+
+
+
+
+이까지 중요!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+---------------------------------------
+element.addEventListener(): 요소에 이벤트 리스너를 추가합니다.
+<button id="myButton">Click me</button>
+eg)
+const button = document.getElementById('myButton');
+button.addEventListener('click', () => {
+  console.log('Button clicked!');
+});
+
+---------------------------------------
+element.appendChild(): 요소의 자식 노드로 다른 노드를 추가합니다.
+<div id="container"></div>
+eg)
+const container = document.getElementById('container');
+const newParagraph = document.createElement('p');
+newParagraph.textContent = 'New paragraph';
+container.appendChild(newParagraph);
+
+---------------------------------------
+element.insertBefore(): 지정된 요소의 바로 앞에 새 노드를 삽입합니다.
+<ul>
+  <li>Item 1</li>
+  <li>Item 3</li>
+</ul>
+eg)
+const list = document.querySelector('ul');
+const newItem = document.createElement('li');
+newItem.textContent = 'Item 2';
+const referenceNode = list.querySelector('li:nth-child(2)');
+list.insertBefore(newItem, referenceNode);
+
+---------------------------------------
+element.removeChild(): 요소의 자식 노드를 제거합니다.
+<div id="container">
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+</div>
+eg)
+const container = document.getElementById('container');
+const paragraphToRemove = container.querySelector('p:nth-child(2)');
+container.removeChild(paragraphToRemove);
+
+---------------------------------------
+element.setAttribute(): 요소의 속성을 설정합니다.
+<img id="myImage" src="image.jpg" alt="An image">
+eg)
+const image = document.getElementById('myImage');
+image.setAttribute('src', 'new-image.jpg');
+
+---------------------------------------
+element.getAttribute(): 요소의 속성 값을 가져옵니다.
+<a id="myLink" href="https://www.example.com">Visit Example</a>
+eg)
+const link = document.getElementById('myLink');
+const hrefValue = link.getAttribute('href');
+console.log(hrefValue); // 출력: "https://www.example.com"
+
+//////////////////////////////////////////////////////////////////
+Quiz - DOM
+
+Write the necessary code that creates the following element using only DOM (no innerHtml use allowed).
+Hello Everyone
+------
+const pElement = document.createElement('p');
+const textNode = document.createTextNode('Hello Everyone');
+
+pElement.appendChild(textNode);
+document.body.appendChild(pElement);
+
+-------------------------------------------------------------------------------------------
+Write the necessary code that creates the following element using only DOM (no innerHtml use allowed) and adds it to "body".
+Dynamic Content
+------
+const pElement = document.createElement('p');
+const textNode = document.createTextNode('Dynamic Content');
+
+pElement.appendChild(textNode);
+document.body.appendChild(pElement);
+
+-------------------------------------------------------------------------------------------
+Write the necessary code using DOM (no innerHtml use allowed) that swaps the "child1" and "child2" elements in the following (changes their order, so that we see child2, then child1):
+------
+const parent = document.querySelector('.container');
+
+const child1 = document.getElementById('child1');
+const child2 = document.getElementById('child2');
+
+parent.insertBefore(child2, child1);
+
+-------------------------------------------------------------------------------------------
+Write a JavaScript code to create an event handler to an element with id =”menu12” in the document. When the element is clicked, call the function named showResult.
+------
+const menuElement = document.getElementById('menu12');
+
+function showResult() {
+ console.log('~~');
+}
+
+menuElement.addEventListener('click', showResult);
+
+
+//////////////////////////////////////////////////////////////////
+<div class="container">
+  <h1>Welcome to Our Website</h1>
+  <p>This is a sample paragraph.</p>
+</div>
+- div는 <div class="">범위밖에서 사용<p></p>
+      </div>
+
+<p>This is a <span class="highlight">highlighted</span> word.</p>
+- span은 <p><span class="">이 범위안에서만 사용가능</span></p>
+
+---------------------------------------------------------------
+1em = 12pt = 16px = 100%
+
+---------------------------------------------------------------
+<input> tagName
+
+Global Attributes (전역 속성):
+
+id: 요소의 고유한 식별자를 지정합니다.
+class: 요소에 하나 이상의 클래스 이름을 지정하여 스타일링을 적용할 수 있습니다.
+style: 요소에 CSS 스타일을 직접 적용합니다.
+title: 요소에 마우스를 올렸을 때 툴팁으로 표시될 텍스트를 지정합니다.
+tabindex: 요소의 탭 순서를 지정하여 키보드 탐색 순서를 제어할 수 있습니다.!!! 탭 눌렀을때 넘어가는 순서정하는거.
+<input> Specific Attributes (<input> 특정 속성):
+
+name: 서버로 전송될 데이터의 이름을 지정합니다. 폼(form) 제출 시 해당 이름과 값이 함께 전송됩니다.
+value: 입력 필드의 초기값을 설정합니다.
+checked: 라디오 버튼이나 체크박스를 기본적으로 선택된 상태로 표시합니다.
+size: 입력 필드의 너비를 문자 수로 지정합니다.
+maxlength: 입력 가능한 최대 문자 수를 제한합니다.
+disabled: 입력 필드를 비활성화하여 사용자 입력을 방지합니다.
+readonly: 입력 필드를 읽기 전용으로 설정하여 사용자가 수정할 수 없게 합니다.
+
+---------------------------------------------------------------
+email: 이메일 주소를 입력할 때 사용합니다.
+url: 웹 주소(URL)를 입력할 때 사용합니다.
+tel: 전화번호를 입력할 때 사용합니다.
+number: 숫자를 입력할 때 사용합니다.
+range: 범위(숫자 범위)를 선택할 때 사용합니다.
+date, month, week, time, datetime: 날짜와 시간과 관련된 정보를 입력할 때 사용합니다.
+color: 색상을 선택할 때 사용합니다.
+search: 검색어를 입력할 때 사용합니다.
+autofocus: 페이지가 로드될 때 해당 입력 필드에 자동으로 포커스를 설정합니다.
+placeholder: 입력 필드에 힌트를 제공하여 사용자가 입력 형식을 이해하고 올바른 데이터를 입력할 수 있도록 돕습니다.
+required: 해당 입력 필드에 데이터를 필수적으로 입력해야 함을 나타냅니다. 폼 제출 시 빈 필드는 서버로 전송되지 않습니다.
+
+---------------------------------------------------------------
+optgroup
+<select name="what-to-do" id="what-to-do" 
+              multiple="multiple" size="9">
+   <optgroup label="Morning">
+      <option value="1" 
+                  selected="selected"> Drink Coffee  
+      </option>
+      <option value="2"> Take A Walk </option>
+      <option value="3"> Buy A Bagel </option>
+   </optgroup>
+
+   <optgroup label="Evening">
+      <option value="4"> Read A Book </option>
+      <option value="5"> Watch TV    </option>
+   </optgroup>
+
+   <optgroup label="Any time">
+      <option value="6"> Write a test </option>
+   </optgroup>
+</select>
+
+---------------------------------------------------------------
+Q10
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {margin: auto;}
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>Student Registration</legend>
+        <div>Name: <input type="text" id="name" placeholder="Enter Name"></div>
+        <div>Email: <input type="text" id="email"></div>
+
+        <div>Degree Studies: 
+            <input type="radio" name="degree" id="Full-time" checked>Full-time
+            <input type="radio" name="degree" id="Part-time">Part-time
+        </div>
+
+        <p>What would you like to study?</p>
+        <select name="language" id="language" size="4">
+        <option value="1" selected>Web</option>
+        <option value="2">C++</option>
+        <option value="3">JAVA</option>
+        <option value="4">Python</option>
+        </select>
+
+        <p>Which days do you prefer?</p>
+        <div>
+            <input type="checkbox" value="Monday">Monday
+            <br>
+            <input type="checkbox" value="Tuesday">Tuesday
+            <br>
+            <input type="checkbox" value="Wednesday">Wednesday
+            <br>
+        </div>    
+    </fieldset>
+    
+    <input type="submit" name="submit" id="submit">
+    <input type="reset" name="reset" id="reset">
+</body>
+</html>

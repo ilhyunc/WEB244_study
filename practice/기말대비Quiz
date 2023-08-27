@@ -1,0 +1,347 @@
+Q1.
+var i = 25; - digit
+var j = "25"; - string
+var k = 2 + "5"; - string
+var l = "2" + "5"; - string
+
+'==='는 타입까지 체크
+
+----------------------------------------
+What is the output of the following script?
+var x = 12.45;
+var y = 1;
+var z =  x + y +'8';
+console.log((z));
+- 13.458
+
+--------------------------------------------
+var student = {name:"John", program:"CPD", semester:2};
+var str = "Student info:\n\n";
+
+for (var x in student) { // x is the current property ('key') – ie: name, program, or semester
+    str += x + ": " + student[x] + "\n"; 
+}
+console.log(str);
+
+output-
+
+Student info:
+
+name: John
+program: CPD
+semester: 2
+////////////////////////////////////////////////////////////////////////////
+Q2.
+Write a JS Function that returns the number of matches found for the first argument in the remaining arguments: findMatches(66, 1, 345, 2334, 66, 67, 66) should return 2.
+You should check if the number of arguments is less than 2, you should return the following message “Number of arguments must be greater than or equal to 2”.
+Finally, you should call the function with some sample data.
+
+function findMatches(value, ...arg){
+    if(arg.length < 2){
+        return "Number of arguments must be greater than or equal to 2"
+    }
+
+    var count = 0;
+    for(let i=0;i<arg.length;i++){
+        if(arg[i] == value){
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(findMatches(66, 1, 345, 2334, 66, 67, 66));
+
+-------------------------------------------------------------
+function program(prog){
+    var student = function(name){
+        return "Student name: " + name + ", \nProgram" + prog;
+    };
+    return student;
+}
+
+var function1 = program("Computer");
+console.log(function1("Joe"));
+
+output 
+Student name: Joe, 
+ProgramCompute
+
+-------------------------------------------------------------
+
+////////////////////////////////////////////////////////////////////////////
+Q3.Write a JS function called “checkPassword” using function declaration syntax that takes one parameter as password String. The function must validate the password according to the following rules : must be between 8-32 characters in length; must contain one Capital Letter; must contain one Number; must contain one Symbol (!@#$%^&*-+{}). Return true if the given password is valid, otherwise false. 
+Write two statements to call and test the above function.
+
+function checkPassword(password){
+    if(password.length < 8 || password.length > 32){
+        return "validate the password according to the following rules : must be between 8-32 characters in length";
+    }
+
+    if(!/[A-Z]/.test(password)){
+        return false;
+    }
+    else if(!/[0-9]/.test(password)){
+        return false;
+    }
+    else if(!/[(!@#$%^&*-+{})]/.test(password)){
+        return false;
+    }
+
+    return true;
+}
+
+console.log(checkPassword("pp134679"));
+console.log(checkPassword("pP134679"));
+console.log(checkPassword("pP!34"));
+console.log(checkPassword("pP!34679"));
+
+////////////////////////////////////////////////////////////////////////////
+Q4. What is the output of the following code?
+var student = {mark1:50, mark2:60,mark3:'C'};
+var sum = 0;
+for(x in student){
+    sum+=student[x];
+}
+console.log(sum);
+output = 110C
+
+////////////////////////////////////////////////////////////////////////////
+Q5.
+<body>
+    <h1>DC Extended Universe</h1>
+    <p><b>DC Extended Universe</b> also known as <i>DCEU</i> is an &ltAmerican media franchise&gt.</p>
+
+    <img src="www.dc.com" alt="no_image">
+
+    <h1>Contents</h1>
+    <p><a href="solo.com">Solo Movies</a></p>
+    <p><a href="Ensemble.com">Ensemble.com</a></p>
+    <p><a href="Equations">Equations</a></p>
+    <p><a href="https://www.google.com">Add Link to Google Search Engine</a></p>
+
+    <h1>Solo Movies</h1>
+    <hr>
+    <ul>
+        <li>Man of Steel</li>
+        <li>Wonder Woman</li>
+        <li>Aquaman</li>
+    </ul>
+
+    <h1>Ensemble      Movies</h1>
+    <hr>
+    <ol>
+        <li>Dawn of Justice</li>
+        <li>Justice League</li>
+        <li>Supervillain movies
+            <ul>
+                <li>Suicide Squad</li>
+                <li>Birds of Prey</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h1>Equations</h1>
+    <hr>
+    <ol>
+        <li>Water:2 H<sub>2</sub>O ---&gtO<sub>2</sub> + 4H<sup>+</sup>+ 4e<sup>-</sup></li>
+    </ol>
+</body>
+
+////////////////////////////////////////////////////////////////////////////
+Q6.
+<table border="2">
+        <caption>Caption: Winter Schedule</caption>
+        <th colspan="6">Time Table</th>
+        <tr>
+            <th>Mon</th>
+            <th>Tues</th>
+            <th>Wed</th>
+            <th>Thurs</th>
+            <th>Fri</th>
+            <th rowspan="6">Hours</th>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Arts</td>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Arts</td> 
+        </tr>
+        <tr>
+            <th colspan="5">Lunch</th>
+        </tr>
+        <tr>
+            <td rowspan="2">Projects</td>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Arts</td> 
+        </tr>
+        <tr>
+            <td>Maths</td>
+            <td>Science</td>
+            <td>Maths</td>
+            <td>Arts</td> 
+        </tr>
+    </table>
+
+////////////////////////////////////////////////////////////////////////////
+Q7.
+
+1.Write the necessary code that creates the following element using only DOM (no innerHtml use allowed).
+Hello Everyone
+
+A--------------
+const pElement = document.createElement('p');
+const textNode = document.createTextNode('Hello Everyone');
+
+pElement.appendChild(textNode);
+document.body.appendChild(pElement);
+
+2.Write the necessary code that creates the following element using only DOM (no innerHtml use allowed) and adds it to "body".
+Dynamic Content
+
+A--------------
+const pElement = document.createElement('p');
+const textNode = document.createTextNode('Dynamic Content');
+
+pElement.appendChild(textNode);
+document.body.appendChild(pElement);
+
+
+3. Write the necessary code using DOM (no innerHtml use allowed) that swaps the "child1" and "child2" elements in the following (changes their order, so that we see child2, then child1):
+Brilliant Text
+Second Best
+
+A--------------
+const parentElement = document.querySelector('.container');
+const child1 = document.getElementById('child1');
+const child2 = document.getElementById('child2');
+
+parentElement.insertBefore(child2, child1);
+
+
+4. Write a JavaScript code to create an event handler to an element with id =”menu12” in the document. When the element is clicked, call the function named showResult.
+A--------------
+const menuElement = document.getElementById('menu12');
+function showResult() {
+ console.log('Element clicked! Calling showResult function...');
+}
+
+menuElement.addEventListener('click', showResult);
+
+
+
+--------------------------------
+var listTitle = "Students List (Alphabetical)";
+var studentArray = ["John", "Bob", "Amy", "Haley", "Kimberly"];
+
+window.onload = function() {
+
+    var myTitle = document.querySelector("#title");
+    myTitle.innerHTML = "<em>" + listTitle + "</em>";
+
+    var myContainer = document.querySelector("#outputContainer");
+
+    studentArray.sort();
+
+    for (var i = 0; i < studentArray.length; i++) {
+        myContainer.innerHTML += "<p>" + studentArray[i] + "</p>";
+    }
+};
+
+////////////////////////////////////////////////////////////////////////////
+Q10.
+<body>
+    <fieldset>
+        <form action="https://httpbin.org/post" method="post">
+        <legend>Student Registration</legend>
+        <div>Name: <input type="text" id="name" placeholder="Enter Name"></div>
+        <div>Email: <input type="text" id="email"></div>
+
+        <div>Degree Studies: 
+            <input type="radio" name="degree" id="Full-time" checked>Full-time
+            <input type="radio" name="degree" id="Part-time">Part-time
+        </div>
+
+        <p>What would you like to study?</p>
+        <select name="language" id="language" size="4">
+        <option value="1" selected>Web</option>
+        <option value="2">C++</option>
+        <option value="3">JAVA</option>
+        <option value="4">Python</option>
+        </select>
+
+        <p>Which days do you prefer?</p>
+        <div>
+            <input type="checkbox" value="Monday">Monday
+            <br>
+            <input type="checkbox" value="Tuesday">Tuesday
+            <br>
+            <input type="checkbox" value="Wednesday">Wednesday
+            <br>
+        </div> 
+        </form>   
+    
+    <input type="submit" name="submit" id="submit">
+    <input type="reset" name="reset" id="reset">
+
+    <a href="mailto:wsong@myseneca.on.ca">Email me</a>
+    <a href="tel:+14164915050">+1 416 491 5050</a>
+    </fieldset>
+
+</body>
+
+////////////////////////////////////////////////////////////////////////////
+Q11.
+
+<body>	
+    <fieldset>
+    <legend>Student Info Form</legend>
+    <form action="https:// httpbin.org/post" method="post">
+      <p>
+        Student Name(*):
+        <input type="text" name="student name" autofocus>
+      </p>
+      <p>
+        Student ID (*):
+        <input type="text" name="student Id" placeholder="###-###-###">
+      </p>
+      <p>      
+        E-mail(*):
+        <input type="email" name="e-mail">
+      </p>
+     <p>Program:</p>
+	<p> 
+	  <select name="what-to-do" id="what-to-do">
+		<option value="1"> CPD </option>
+		<option value="2" selected > CPA </option>
+		<option value="3"> BSD </option>
+	  </select>
+<p>
+<label for="semester">Semester: </label>
+                <input type="number" min="1" max="6">
+</p>
+     <p>Gender:
+        <input type="radio" name="gender" id="gender-male" value="m" checked>
+            <label for="gender-male">Male</label>
+            <input type="radio" name="gender" id="gender-male" value="f">
+            <label for="gender-female">Female</label>
+    </p>
+    <p>
+    <label for = “msg”> Message: </label>
+<textarea id=:msg:></textarea>
+<br>
+<input type='submit' value='Submit'>
+ </p>
+</form>
+</body>
+ </fieldset>

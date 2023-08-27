@@ -1,0 +1,778 @@
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+PPT2
+
+var student = {name:"John", program:"CPD", semester:2};
+var str = "Student info:\n\n";
+
+for (var x in student) { // x에다가 student의 index 정보를 하나씩 담는 역활 
+    str += x + ": " + student[x] + "\n"; 
+}
+console.log(str);
+
+Student info:
+
+name: John
+program: CPD
+semester: 2
+
+//----------------------------------------------------
+prompt(): 사용자로부터 입력을 받는 함수입니다.
+eg) 
+var name = prompt("Please enter your name:");
+console.log("Hello, " + name);
+///
+
+parseInt(), parseFloat(): 문자열을 숫자로 변환하는 함수입니다.
+숫자까지만 읽고, 숫자가 아예 없으면 NaN출력
+///
+
+Number(), String(): 데이터 타입을 변환하는 함수입니다.
+eg) 
+var num = Number("123");
+console.log(typeof num); // number
+
+var str = String(456);
+console.log(typeof str); // string
+///
+isNaN(), isFinite(): 숫자 유형을 확인하는 함수입니다
+isFinite() - 유한한 숫자 체크
+
+//----------------------------------------------------
+Default values
+var school = prompt("What is your school?", "Seneca");
+console.log("The school you are attending :\n" + school);
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+PPT3
+
+Member          Type            Example
+length          property    stringName.length
+charAt(n)       method      stringName.charAt(n)
+charCodeAt(n)   method      stringName.charCodeAt(n)
+concat(string2, string3)method stringName.concat(string2, string3)
+indexOf('x')   method stringName.indexOf('x')
+lastIndexOf('x') method stringName.lastIndexOf('x')
+split('x')       method   var arrayName = stringName.split('x')
+substr(x,y)     method  stringName.substr(x,y)  문자열에서 지정한 위치(x)부터 시작하여 주어진 길이(y)만큼의 문자열을 반환하는 메소드입니다. 
+substring(x,y) method   stringName.substring(x,y)  문자열에서 지정한 범위(x부터 y 전까지)의 문자열을 반환하는 메소드입니다.
+toLowerCase() method    문자열을 소문자로 변환하는 메소드입니다.
+toUpperCase() method    문자열을 대문자로 변환하는 메소드입니다.
+trim()         method   문자열 앞뒤의 공백 문자를 제거하는 메소드입니다. !! 앞,뒤만 제거
+prototype   property    Allows you to add properties and methods to an object
+
+//----------------------------------------------------
+var str = "School of ICT-Seneca College";
+console.log(str.split('-'));    // [ "School of ICT", "Seneca College" ]   
+console.log(str.split(/-/));    // [ "School of ICT", "Seneca College" ]
+console.log(str.split(/[ -]/)); // [ "School", "of", "ICT", "Seneca", "College" ]
+- ' '(공백) 또는 '-'(-)로 나눔.
+
+//----------------------------------------------------
+RegExp Object
+
+g - global match
+i - ignore case-sensitivity
+m - multiline;
+
+var str = "Welcome to Toronto";
+
+var patt = /Me/;       
+var result = patt.test(str);
+console.log(result);   // false 
+ 
+var result2 = /Me/i.test(str); // i가 대소문자 구문 없앰
+console.log(result2);  // true 
+
+//----------------------------------------------------
+\d: 이것은 숫자(digit)에 매칭됩니다. [0-9]와 동일합니다.
+\D: 이것은 숫자가 아닌(non-digit) 문자에 매칭됩니다. [^0-9]와 동일합니다.
+\w: 이것은 알파벳 문자, 숫자, 밑줄(_)에 매칭됩니다. [A-Za-z0-9_]와 동일합니다.
+\s: 이것은 공백 문자, 탭 문자, 개행 문자에 매칭됩니다. [ \t\r\n]와 동일합니다.
+
+//----------------------------------------------------
+pop()
+var colors = ["Red", "Green", "Blue", "White", "Black"];
+var last   = colors.pop(); //배열의 마지막 항목을 제거 하고 last에 저장 "Black" 
+var first  = colors.shift(); //배열의 첫번째 항목을 제거하고 first에 저장 "Red"
+console.log(colors);  // [ "Green", "Blue", "White" ]
+console.log(last);     // Black
+console.log(first);    // Red
+
+------
+push() 메소드는 JavaScript 배열에서 사용되며, 새 항목을 배열의 끝에 추가하는 데 사용됩니다. 이 메소드를 사용하면 배열의 끝에 새 요소가 추가되어 배열이 변경됩니다.
+var colors = ["Red", "Green", "Blue"];
+colors.push("Pink");  
+console.log(colors); // [ "Red", "Green", "Blue", "Pink" ]
+
+------
+join() 메소드는 배열의 모든 요소를 하나의 문자열로 결합하고 지정된 구분자(separator)로 구분된 형태로 반환하는 데 사용됩니다. 
+만약 구분자가 지정되지 않으면 기본적으로 쉼표(,)가 사용됩니다. 이 메소드를 사용하면 배열의 요소들을 하나의 문자열로 묶어서 출력할 수 있습니다.
+
+var myArray = ["Red", "Green", "Blue", "Yellow"];
+console.log( myArray );  // ["Red", "Green", "Blue", "Yellow"]
+ 
+console.log( myArray.join()    ); // "Red,Green,Blue,Yellow"
+console.log( myArray.join(' ') ); // "Green Blue Yellow"
+console.log( myArray.join("&") ); // "Red&Green&Blue&Yellow"
+
+------
+join() 메소드는 배열의 모든 요소를 하나의 문자열로 결합하고 지정된 구분자(separator)로 구분된 형태로 반환하는 데 사용됩니다. 
+만약 구분자가 지정되지 않으면 기본적으로 쉼표(,)가 사용됩니다. 이 메소드를 사용하면 배열의 요소들을 하나의 문자열로 묶어서 출력할 수 있습니다.
+
+var myArray = ["Red", "Green", "Blue", "Yellow"];
+console.log( myArray );  // ["Red", "Green", "Blue", "Yellow"]
+ 
+console.log( myArray.join()    ); // "Red,Green,Blue,Yellow"
+console.log( myArray.join(' ') ); // "Green Blue Yellow"
+console.log( myArray.join("&") ); // "Red&Green&Blue&Yellow"
+
+
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+PPT4
+
+var dt = new Date();
+console.log(dt);                  // Thu Jun 02 2016 11:11:50 GMT-0400 (Eastern Daylight Time)
+console.log(dt.toString());       // Thu Jun 02 2016 11:11:50 GMT-0400 (Eastern Daylight Time)
+console.log(dt.toLocaleString()); // 6/2/2016, 11:11:50 AM
+console.log(dt.toUTCString());// Thu, 02 Jun 2016 15:11:50 GMT
+console.log(dt.toDateString());   // Thu Jun 02 2016
+
+//----------------------------------------------------
+getMonth() method - Returns a Number - 0 to 11 
+var myMonth = (new Date()).getMonth();
+console.log(myMonth); // 실제 Month보다 -1로 표시댐.eg) 1월이면 0으로 표시.
+
+getDate() method - Returns a number - 1 to 31
+getDay() method - Returns a Number: 0 for Sunday, 1 for Monday, …
+getFullYear() method - Returns a 4 digit year
+getHours()   method  - returns a number of 0 to 23
+getMinutes() method  -returns a number of 0 to 59
+getSeconds() method - returns a number of 0 to 59
+
+//----------------------------------------------------
+Object.create() -
+clone 만드는거임!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+var rectangle1 = {
+    width: 10,
+    height: 15,
+    show: function () {
+       console.log('dimensions: ' + this.width + " x " + this.height);
+    }
+};
+
+// creates a new rectangle using rectangle1 as prototype
+var rectangle2 = Object.create(rectangle1); // clone
+rectangle2.show();    // dimensions: 10 x 15
+
+rectangle2.width = 20; 
+rectangle2.height = 25;
+
+rectangle2.show();  // dimensions: 20 x 25
+
+
+
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+PPT5
+' ', non-breaking space, &nbsp
+<, less than, &lt
+>, greater than, &gt
+&, ampersand, &amp
+©, copyright, &copy
+
+//----------------------------------------------------
+Specifies bold text, <b>.......</b> 볼드체
+Specifies emphasized text, <em>....</em> 강조된 이탤릭체 
+Specifies italic text, <i>.......</i> 이탤릭체 
+Specifies text to be underlined, <u>.......</u> 밑줄
+
+Specifies superscripted text, <sup>...</sup> - 2의 2승 표시할때 위에 큰숫자
+CSS 스타일: { font-size: small; vertical-align: super; }
+
+Specifies subscripted text, <sub>...</sub> - 밑에 작은숫자
+{ font-size: xx-small; vertical-align: sub; }
+
+//----------------------------------------------------
+<dl> 	 
+   <dt> ...... </dt> // 여기부터 시작 빈칸없음
+      <dd> ...... </dd> // 첫 빈칸 탭 생김
+      <dd> ...... </dd>
+   <dt> ...... </dt>
+      <dd> ...... </dd>
+</dl>
+들여쓰기 
+
+//----------------------------------------------------
+<ol start="3">
+   <li>Start from 3</li>
+   <li>Next item</li>
+   <li>Another item</li>
+</ol>
+
+3.Start from 3
+4.Next item
+5.Another item
+
+//----------------------------------------------------
+E-mail link 
+<a href="mailto:icho8@myseneca.ca">Email me</a>
+
+Phone link
+<a href="tel:+6472825096">+1 647 282 5096</a>
+
+Image link 
+<a href="http://www.senecacollege.ca/">
+   <img src="seneca-logo.png" alt="Seneca College" /> 
+</a>
+
+
+
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+PPT6
+
+rowspan = row(세로) 속성은 테이블의 행을 횡방향으로 확장시키는 데 사용되는 속성입니다. 이를 통해 하나의 셀이 여러 행을 걸쳐 확장되도록 지정할 수 있습니다.
+colspan = column(가로) 속성은 테이블의 열을 종방향으로 확장시키는 데 사용되는 속성입니다. 이를 통해 하나의 셀이 여러 열을 걸쳐 확장되도록 지정할 수 있습니다.
+
+-------------------------------------------
+<table border="2"> - Specifies a table 표만드는시트 , border로 칸 설정 default 0
+<caption> - Specifies a table caption 표 위에 나타나는 제목
+<tr> - Specifies a table row 가로 한줄에 나오는 정보량
+<th> - Specifies a table header 글자 굵게 
+<td> - Specifies a table cell / detail 그냥 데이터
+
+//----------------------------------------------------
+이렇게 해도 헤더,바디,풋 순으로 테이블 표시
+
+<table>
+<thead></thead>
+<tfoot></tfoot>
+<tbody></tbody>
+</table>
+
+//----------------------------------------------------
+<figure>
+<figcaption>text</figcaption> - <img>, <video>, <audio> 이 세가지 요소의 전,후에 사용하여 텍스틀 위 또는 아래로 배치
+</figure>
+
+<figure>
+        <figcaption>This is an example image.</figcaption>//여기나
+        <img src="image.jpg" alt="An example image"> OR <video> OR <audio>
+        <figcaption>This is an example image.</figcaption>//여기
+</figure>
+
+//----------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Image Example</title>
+</head>
+<body>
+   <h1>Image Example</h1>
+   <p>Here is an image of Seneca College logo:</p>
+   <img src="logo.png" alt="Seneca College" style="width: 195px; height: 43px;">
+</body>
+</html>
+
+<img> 태그는 이미지를 웹 페이지에 정의합니다.
+src 속성은 이미지의 URL을 지정합니다.
+alt 속성은 이미지의 대체 텍스트를 제공합니다. 이미지가 로드되지 않을 경우 대체 텍스트가 표시됩니다.
+style 속성을 사용하여 이미지의 너비와 높이를 CSS를 통해 지정할 수 있습니다
+
+//----------------------------------------------------
+alert('Hello, World!'); - 팝업 창으로 'Hello, World!'를 출력
+
+<div class="container">
+  <h1>Welcome to Our Website</h1>
+  <p>This is a sample paragraph.</p>
+</div>
+- div는 <div class="">범위밖에서 사용<p></p></div>
+
+<p>This is a <span class="highlight">highlighted</span> word.</p>
+- span은 <p><span class="">이 범위안에서만 사용가능</span></p>
+
+
+
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+PPT7
+
+*** element.className: 요소의 클래스 이름을 가져오거나 설정합니다.
+<div class="box"></div>
+eg)
+const box = document.querySelector('.box');
+console.log(box.className); // 출력: "box"
+
+---------------------------------------
+*** element.id: 요소의 고유한 ID를 가져오거나 설정합니다.
+<p id="myParagraph">This is a paragraph.</p>
+eg)
+const paragraph = document.getElementById('myParagraph');
+console.log(paragraph.id); // 출력: "myParagraph"
+
+---------------------------------------
+*** element.innerHTML: 요소의 내부 HTML 콘텐츠를 가져오거나 설정합니다
+<div id="myDiv">Hello, <span>world</span>!</div>
+eg)
+const div = document.getElementById('myDiv');
+console.log(div.innerHTML); // 출력: "Hello, <span>world</span>!"
+
+---------------------------------------
+*** element.style: 요소의 인라인 스타일 속성을 가져오거나 설정합니다
+<p id="styledParagraph" style="color: blue;">This is a blue paragraph.</p>
+eg)
+const styledParagraph = document.getElementById('styledParagraph');
+console.log(styledParagraph.style.color); // 출력: "blue"
+
+---------------------------------------
+*** element.parentNode: 요소의 부모 노드를 가져옵니다.
+<div>
+  <p>This is a paragraph.</p>
+</div>
+eg)
+const paragraph = document.querySelector('p');
+const parentDiv = paragraph.parentNode;
+console.log(parentDiv.tagName); // 출력: "DIV"
+
+---------------------------------------
+*** element.nextSibling: 현재 요소의 다음 형제 노드를 가져옵니다.
+<div>
+  <p>First paragraph.</p>
+  <p>Second paragraph.</p>
+</div>
+eg)
+const firstParagraph = document.querySelector('p');
+const nextParagraph = firstParagraph.nextSibling;
+console.log(nextParagraph.textContent); // 출력: "Second paragraph."
+
+///////////////////////////////////////////////////////////////////////////////
+***Methods
+
+element.querySelector(): 주어진 CSS 선택자와 일치하는 첫 번째 하위 요소를 검색합니다.
+<ul>
+  <li class="item">Item 1</li>
+  <li class="item">Item 2</li>
+</ul>
+eg)
+const listItem = document.querySelector('.item');
+console.log(listItem.textContent); // 출력: "Item 1"
+
+---------------------------------------
+element.querySelectorAll(): 주어진 CSS 선택자와 일치하는 모든 하위 요소를 검색합니다.
+<ul>
+  <li class="item">Item 1</li>
+  <li class="item">Item 2</li>
+</ul>
+eg)
+const items = document.querySelectorAll('.item');
+items.forEach(item => console.log(item.textContent));
+// 출력: "Item 1"
+// 출력: "Item 2"
+
+---------------------------------------
+element.getElementsByTagName(): 주어진 태그 이름과 일치하는 모든 하위 요소를 검색합니다.
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+eg)
+const listItems = document.getElementsByTagName('li');
+console.log(listItems[0].textContent); // 출력: "Item 1"
+
+---------------------------------------
+element.getElementsByClassName(): 주어진 클래스 이름과 일치하는 모든 하위 요소를 검색합니다.
+<ul>
+  <li class="item">Item 1</li>
+  <li class="item">Item 2</li>
+</ul>
+eg)
+const itemElements = document.getElementsByClassName('item');
+console.log(itemElements[1].textContent); // 출력: "Item 2"
+
+---------------------------------------
+appendChild(node):
+appendChild() 메서드는 주어진 노드를 해당 노드의 자식 목록의 마지막에 추가합니다. 즉, 지정한 노드를 현재 노드의 가장 마지막 자식으로 추가합니다.
+
+insertBefore(new, old):
+insertBefore() 메서드는 주어진 새 노드(new)를 해당 노드의 자식 목록에 지정한 기존 노드(old) 바로 앞에 삽입합니다. 새 노드가 기존 노드의 이전 형제가 됩니다.
+
+removeChild(node):
+removeChild() 메서드는 주어진 노드를 해당 노드의 자식 목록에서 제거합니다. 즉, 지정한 노드를 현재 노드의 자식 목록에서 삭제합니다.
+
+replaceChild(new, old):
+replaceChild() 메서드는 주어진 새 노드(new)로 기존의 특정 자식 노드(old)를 교체합니다. 이를 통해 기존 노드를 새 노드로 대체할 수 있습니다.
+
+
+
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+PPT8
+
+<div class="container">
+  <h1>Welcome to Our Website</h1>
+  <p>This is a sample paragraph.</p>
+</div>
+- div는 <div class="">범위밖에서 사용<p></p>
+      </div>
+
+<p>This is a <span class="highlight">highlighted</span> word.</p>
+- span은 <p><span class="">이 범위안에서만 사용가능</span></p>
+
+---------------------------------------------------------------
+1em = 12pt = 16px = 100%
+
+---------------------------------------------------------------
+{ list-style-type:circle; } //○
+{ list-style-type:square; } //■
+{ list-style-type:upper-roman; } //II, III, IV, V…
+{ list-style-type:lower-alpha; } //a, b, c, … z
+
+---------------------------------------------------------------
+body {
+    background-image: url("NiagaraFalls.jpg"); /* 전체 웹페이지의 배경 이미지를 설정합니다 */
+}
+
+h1 {
+    background-image: url("seneca_logo.gif"); /* h1 (제목) 요소들의 배경 이미지를 설정합니다 */
+    background-repeat: repeat; /* 배경 이미지를 어떻게 반복할지 설정합니다 */
+    background-position: center center; /* 배경 이미지를 수평 및 수직으로 중앙에 배치합니다 */
+    background-color: #33AA33; /* h1 요소들의 배경 색상을 설정합니다 */
+}
+
+background-color: 배경 이미지가 지정되지 않거나 사용할 수 없을 때 배경 색상을 제공합니다.
+이 속성은 배경 이미지가 없는 경우에 대비하여 요소의 배경에 색상을 설정하는 데 사용됩니다.
+
+background-position: 배경 이미지의 위치를 설정합니다.
+  left top (기본값): 왼쪽 상단에 배경 이미지를 배치합니다.
+  right bottom: 오른쪽 하단에 배경 이미지를 배치합니다.
+  center center: 가로 및 세로 방향으로 중앙에 배경 이미지를 배치합니다.
+ 
+background-repeat: 배경 이미지의 반복 방법을 설정합니다.
+  repeat (기본값): 배경 이미지를 가로 및 세로로 반복합니다.
+  repeat-x: 배경 이미지를 가로로만 반복합니다.
+  repeat-y: 배경 이미지를 세로로만 반복합니다.
+  no-repeat: 배경 이미지를 반복하지 않습니다.
+
+background-image: 배경 이미지를 설정합니다.
+  background-image: url(image.jpg); 형식으로 배경 이미지를 지정할 수 있습니다.
+image.jpg는 상대 경로 또는 절대 경로일 수 있습니다.
+
+background 축약 속성: 한 줄로 여러 배경 관련 속성을 설정할 수 있습니다.
+background: url("seneca_logo.gif") no-repeat grey right top;
+이 경우, "seneca_logo.gif" 이미지를 배경으로 사용하고, 반복하지 않으며, 배경 색상은 회색이며, 배경 이미지의 위치는 오른쪽 상단에 설정됩니다.
+
+---------------------------------------------------------------
+/* 방문하지 않은 링크의 스타일 */
+a:link {
+    color: blue;
+    text-decoration: underline;
+}
+
+/* 이미 방문한 링크의 스타일 */
+a:visited {
+    color: purple;
+}
+
+/* 링크에 커서가 올라갔을 때의 스타일 */
+a:hover {
+    color: red;
+    text-decoration: none; /* 밑줄 제거 */
+}
+
+/* 링크를 클릭했을 때의 스타일 */
+a:active {
+    color: green;
+}
+
+:active: 활성 상태의 링크나 요소를 선택합니다.
+:hover: 마우스가 위로 올라갔을 때의 상태를 선택합니다.
+:link: 방문하지 않은 링크를 선택합니다.
+:visited: 이미 방문한 링크를 선택합니다.
+:focus: 포커스가 있는 요소를 선택합니다.
+:first-child: 부모 요소 내의 첫 번째 자식 요소를 선택합니다.
+
+---------------------------------------------------------------
+// highlight all paragraphs in the document
+var paraElements = document.querySelectorAll("p");
+
+for (var i = 0; i < paraElements.length; i++) {
+   paraElements[i].style.backgroundColor = "yellow";
+}
+
+---------------------------------------------------------------
+backgroundColor:
+요소의 배경색을 설정하거나 반환합니다.
+
+border:
+borderWidth, borderStyle, borderColor를 한 번에 설정하거나 반환합니다.
+
+borderColor:
+요소의 테두리 색상을 설정하거나 반환합니다. 최대 4개의 값 설정 가능합니다.
+
+color:
+텍스트의 색상을 설정하거나 반환합니다.
+
+display:
+요소의 표시 방식(display type)을 설정하거나 반환합니다.
+
+fontSize:
+텍스트의 글꼴 크기를 설정하거나 반환합니다.
+
+fontWeight:
+텍스트의 굵기를 설정하거나 반환합니다.
+
+margin:
+요소의 여백(margin)을 설정하거나 반환합니다. 최대 4개의 값 설정 가능합니다.
+
+padding:
+요소의 안쪽 여백(padding)을 설정하거나 반환합니다. 최대 4개의 값 설정 가능합니다.
+
+textDecoration:
+텍스트의 장식을 설정하거나 반환합니다 (밑줄, 취소선 등).
+
+minHeight:
+요소의 최소 높이를 설정하거나 반환합니다.
+
+minWidth:
+요소의 최소 너비를 설정하거나 반환합니다.
+
+visibility:
+요소의 가시성(visibility)을 설정하거나 반환합니다 (보이거나 감추기).
+
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+PPT9
+
+margin:10px 5px 15px 20px;:
+위 여백 (Top margin): 10px
+우측 여백 (Right margin): 5px
+아래 여백 (Bottom margin): 15px
+좌측 여백 (Left margin): 20px
+
+margin:10px 5px 15px;:
+위 여백 (Top margin): 10px
+우측 여백 (Right margin): 5px
+아래 여백 (Bottom margin): 15px
+좌측 여백 (Left margin): 5px (동일한 값으로 설정)
+
+margin:10px 5px;:
+위 여백 (Top margin): 10px
+우측 여백 (Right margin): 5px
+아래 여백 (Bottom margin): 10px
+좌측 여백 (Left margin): 5px (동일한 값으로 설정)
+
+margin:10px;:
+위 여백 (Top margin): 10px
+우측 여백 (Right margin): 10px
+아래 여백 (Bottom margin): 10px
+좌측 여백 (Left margin): 10px (동일한 값으로 설정)
+
+--------------------------------------------------------
+border-style에 쓸수 있는것.
+dotted, dashed, solid, double, groove, ridge, inset, outset, hidden.
+
+border-style: solid;  
+
+--------------------------------------------------------
+h1 { margin: 0 0 25px 0; background: #cfc; } 
+p { margin: 20px 0 0 0; background: #cf9; }
+적용시 큰 사이즈인 h1은 25px이적용됨
+
+--------------------------------------------------------
+p { text-align: center }
+h2 { text-align: center } 
+
+
+--------------------------------------------------------
+"style=overflow: scroll" - 스크롤바 포함
+"style=overflow: auto" - 스크롤바 
+"style=overflow: hidden" - 오버플로 숨기기
+"style=overflow: visible" - 기본값
+
+-------------------------------------------------------
+<header></header>
+    <nav></nav>
+<content></content>
+<footer></footer>
+
+<header></header>
+<aside>   <main>
+</aside>  </main> 
+<footer></footer>
+
+     <header></header>
+<aside>   <main>   <ads>
+</aside>  </main>  </ads>
+     <footer></footer>
+
+-------------------------------------------------------
+div  {   border: 2px solid #a1a1a1;
+	    padding: 10px 40px;
+	    background: grey;
+	    width: 300px;
+           border-radius: 50px; 모퉁이 곡선 처리.
+	    /* border-radius:10%; */
+	    -moz-border-radius:25px; 
+	}
+
+-------------------------------------------------------
+box shadow 5px 5px 5px #303030
+그림자를 요소의 오른쪽 아래에 위치시킵니다. (horizontal-offset: 5px, vertical-offset: 5px)
+그림자의 흐림 정도를 5px로 설정합니다. (blur: 5px)
+그림자를 요소에서 5px 만큼 확장시킵니다. (spread: 5px)
+
+-------------------------------------------------------
+<nav>: 웹 페이지 또는 사이트의 네비게이션(메뉴) 영역을 정의합니다. 주로 링크, 메뉴 아이템, 탐색 기능 등을 포함하여 사용자가 웹 사이트 내에서 이동할 수 있도록 도와줍니다.
+<section>: 관련된 내용을 묶어 그룹화한 영역을 정의합니다. 웹 페이지를 여러 섹션으로 분할하여 내용의 의미와 구조를 나타냅니다. 주로 제목, 문단, 이미지 등의 콘텐츠를 포함할 수 있습니다.
+
+-------------------------------------------------------
+
+
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+PPT10
+
+<form action="https://httpbin.org/get" method="post">
+- GET"은 주로 데이터를 URL 매개변수로 전송하고 "POST"는 요청 본문을 통해 데이터를 전송합니다.
+
+-------------------------------------------------------
+<input type="password"></input> - 비밀번호 입력시 암호화
+<input type="file"></input> - 파일첨부
+<input type="submit"></input> - 제출
+<input type="reset"></input> - clear
+<input disabled></input> - 입력불가 
+<input readonly></input> - 입력불가 
+
+<input type="checkbox"></input> - 체크가능한 박스설정
+<p>Which operating system do you use? </p> 
+<input type="checkbox" name="system_type" id="stype-2" value="2" />Windows 7<br /> 
+<input type="checkbox" name="system_type" id="stype-3" value="3" checked>Windows 8<br> checked 표시하면 체크된상태로 됨
+<input type="checkbox" name="system_type" id="stype-4" value="4"  checked/> Unix<br /> 
+
+-------------------------------------------------------
+<ul>
+  <li><input type="radio" name="paymethod" id="paymethod-1" value="cash" checked />Cash</li>   
+  <li><input type="radio" name="paymethod" id="paymethod-2" value="cheque" />Cheque</li>   
+  <li><mark>Credit card</mark>     
+    <ul>      
+      <li><input type="radio" name="paymethod" id="paymethod-3" value="mastercard" /> Mastercard</li>      
+      <li><input type="radio" name="paymethod" id="paymethod-4" value="visa" />Visa</li>      
+    </ul></li>  
+ </ul>
+
+ ---------------------------------------------------------------
+optgroup
+<select name="what-to-do" id="what-to-do" 
+              multiple="multiple" size="9">
+   <optgroup label="Morning">
+      <option value="1" 
+                  selected="selected"> Drink Coffee  
+      </option>
+      <option value="2"> Take A Walk </option>
+      <option value="3"> Buy A Bagel </option>
+   </optgroup>
+
+   <optgroup label="Evening">
+      <option value="4"> Read A Book </option>
+      <option value="5"> Watch TV    </option>
+   </optgroup>
+
+   <optgroup label="Any time">
+      <option value="6"> Write a test </option>
+   </optgroup>
+</select>
+
+ -------------------------------------------------------
+ Child selector
+e.g. 	ul>li { text-decoration: underline; }
+Adjacent sibling selector 
+e.g. 	h2+p { color: blue; } // matches all p elements that appear immediately after h2 elements.
+General sibling selector
+e.g. 	h2~p { color: blue; }
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+PPT11
+
+required - 양식을 채워야한다!
+
+function validatePhoneNumber() {
+       var errors = document.querySelector("#errors");
+       var input = document.form1. phone.value.trim();
+       if (parseInt(input) != input) {
+            errors.innerHTML += '<p>* Please enter a phone number, numbers only</p>';
+            document.form1. phone.focus();
+	        return false; // failed for validation
+       }   
+       return true; // passed for validation
+  }
+
+<input class="inputtext" type="tel" id="pnumber" name="phone" autofocus required>
+
+-------------------------------------------------------
+<form id="example" name="form1" method="post" action="https://httpbin.org/post" onsubmit="return formValidation();"></form>
+
+<script>
+    function formValidation() {
+        clearerrors();
+        return validatePhoneNumber();
+    }
+
+    function validatePhoneNumber() {
+        var errors = document.querySelector("#errors");
+        var input = document.form1.phone.value.replace(/-/g, '').trim(); // Remove hyphens and whitespace
+        if (input.length != 10) { // Check 10 characters
+            errors.innerHTML += "<p>* Please enter 10 digits.</p>";
+            document.form1.phone.focus();
+           return false; // Failed for validation
+        }
+        if (isNaN(input)) { // Check if all characters are digits
+            errors.innerHTML += "<p>* Please enter a phone number, numbers only.</p>";
+            document.form1.phone.focus();
+            return false; // Failed for validation
+        }
+        return true; // Passed for validation
+    }
+    function clearerrors () {
+        document.querySelector("#errors").innerHTML = "";
+    }
+</script>
+-------
+<body>
+    <form id="example" name="form1" method="post" action="https://httpbin.org/post" onsubmit="return formValidation();">
+        <input type="text" name="phone" placeholder="Enter phone number">
+        <div id="errors"></div>//에러 발생시 나타날 메시지를 위한 자리맡아두는것
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+
+-------------------------------------------------------
